@@ -1,2 +1,3 @@
-browser*
-dist*
+browser*/
+dist*.zip
+Brewfile.lock.json

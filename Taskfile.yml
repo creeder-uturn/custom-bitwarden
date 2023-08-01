@@ -1,0 +1,6 @@
+version: '3'
+
+tasks:
+  brew: brew bundle
+  uturn: BRAND=Uturn LABEL=UT SUFFIX="-uturn" ./build.sh
+  personal: BRAND=Personal LABEL=MY SUFFIX="-personal" ./build.sh

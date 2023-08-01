@@ -4,9 +4,10 @@ VER=2023.7.0
 
 echo "Building for '$BRAND' with suffix '$SUFFIX' and watermark '$LABEL'"
 
-wget -N https://github.com/bitwarden/browser/releases/download/browser-v${VER}/dist-chrome-${VER}.zip
+wget -N https://github.com/bitwarden/clients/releases/download/browser-v${VER}/dist-chrome-${VER}.zip
 rm -rf browser${SUFFIX}
 unzip -qd browser${SUFFIX} dist-chrome-${VER}.zip
+rm dist-chrome-${VER}.zip
 (cd browser${SUFFIX} && find . -type f -exec perl -pi -e 's/"Bitwarden"/"Bitwarden - '${BRAND}'"/go;' {} \;)
 (cd browser${SUFFIX} && find . -type f -exec perl -pi -e 's/"Bitwarden - Free Password Manager"/"Bitwarden - '${BRAND}'"/go;' {} \;)
 (cd browser${SUFFIX} && find . -type f -exec perl -pi -e 's{<title>Bitwarden</title>}{<title>Bitwarden - '${BRAND}'</title>}go;' {} \;)
@@ -27,7 +28,7 @@ for file in browser${SUFFIX}/images/*; do
 			pointsize=""
 			;;
 	esac
-			
+
 	composite $pointsize label:"${LABEL}" -gravity NorthWest $file newimages/`basename $file`
 done
 cp newimages/* browser${SUFFIX}/images/
