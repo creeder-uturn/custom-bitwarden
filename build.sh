@@ -1,7 +1,5 @@
 #!/bin/sh -x
 
-VER=2023.7.0
-
 echo "Building for '$BRAND' with suffix '$SUFFIX' and watermark '$LABEL'"
 
 wget -N https://github.com/bitwarden/clients/releases/download/browser-v${VER}/dist-chrome-${VER}.zip

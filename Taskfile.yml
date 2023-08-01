@@ -1,6 +1,11 @@
 version: '3'
 
+env:
+  VER: 2023.7.0 # Bitwarden Version
+  BRAND: Uturn # Extension name Suffix
+  LABEL: UT # Icon Text - should be 2 or 3 characters
+  SUFFIX: -uturn # Build folder suffix
+
 tasks:
   brew: brew bundle
-  uturn: BRAND=Uturn LABEL=UT SUFFIX="-uturn" ./build.sh
-  personal: BRAND=Personal LABEL=MY SUFFIX="-personal" ./build.sh
+  build: ./build.sh
